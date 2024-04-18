@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FA 2!! Multiplication Table mwa mwa</title>
+</head>
+<body>
+    <h1>Multiplication Table Generator:</h1>
+    <p>Enter a number betweeen 2 and 10!</p>
+    <div>
+        <input type="number" id="num1" name="num1" style="margin-right: 10px;">
+        <span>by</span>
+        <input type="number" id="num2" name="num2" style="margin-left: 10px;">
+    </div><br>
+    <button type="submit" onclick="genTable();">Click here to generate!</button>
+    <br><br>
+    <div id="mtable"></div>
+    <script>
+        function genTable()
+        {   
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+
+            if (num1 < 2 || num1 > 10 || num2 < 2 || num2 > 10)
+            {
+                alert("Please enter a number between 2 and 10.");
+            } 
+            else
+            {
+                document.getElementById("mtable").innerHTML="";
+                var table = "<table border ='1'><br>";
+                for (row=1; row<=num1; row++)
+                {
+                    table += "<tr>";
+                    for (column=1; column<=num2;column++)
+                    {
+                        table += "<td>" + (row*column) + "</td>";
+                    }
+                    table += "</tr><br>";
+                }
+                table += "</table>";
+
+                document.getElementById("mtable").innerHTML = table;
+            }
+        }
+        
+    </script>
+</body>
+</html>
